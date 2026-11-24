@@ -7,17 +7,22 @@
 // O único par: O número 2 é o único número primo par. Todos os outros números pares são divisíveis por 2 e, portanto, não são primos.
 // Infinitidade: A sequência dos números primos é infinita. Os primeiros exemplos são: 2, 3, 5, 7, 11, 13, 17, 19, 23...
 
-let numero = +prompt('Digite um número')
-let divisor = 2;
+let numero = +prompt('Digite um número');
 let primo = true;
 
-for (let divisor = 2; divisor < numero; divisor = divisor + 1){
-    if (numero % divisor === 0){
-        primo = false
-        console.log('É um numero composto');   
+if (numero <= 1) {
+    primo = false;
+}
+
+for (let divisor = 2; divisor < numero; divisor = divisor + 1) {
+    if (numero % divisor === 0) {
+        primo = false;
+        break;
     }
-    else if (numero % divisor === 1){
-        primo = true
-        console.log('É um número impar');
-    }
+}
+
+if (primo) {
+    console.log('É um número primo!');
+} else {
+    console.log('Não é um número primo!');
 }
